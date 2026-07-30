@@ -1,0 +1,143 @@
+<!doctype html>
+<!--
+  FILE: 3-poster/landing/index.html
+  ==================================================================================================
+  The landing page the poster's QR code resolves to. Design record: ../qr-strategy.md.
+
+  THIS PAGE IS AN INDEX, NEVER A COPY. The seven titles below are owned by supplement/point-*.tex and
+  the page numbers by the built supplement.pdf; nothing here restates the supplement's prose. Re-read
+  both after any renumbering -- the badge numbers on the poster, the \suphead numbers in the
+  supplement, and the list numbers here are three places that must agree.
+
+  MEASURED PAGE STARTS (supplement.pdf, 10 pages): 1 -> p1, 2 -> p4, 3 -> p5, 4 -> p5, 5 -> p6,
+  6 -> p7, 7 -> p9. Points 3 and 4 share page 5, so their deep links land on the same page.
+
+  BEFORE PUBLISHING, four items are marked `pending' below and must each be resolved:
+    - the reference list        -> add the final section to supplement.tex, then link it
+    - abstract.pdf             -> confirm the CCN author agreement permits self-hosting, then add
+    - poster.pdf               -> add a downsampled copy (the build output is 2.7 MB)
+    - the two personal links   -> supply the LinkedIn and the supervisor's homepage URLs
+  A pending item renders as plain text, never as a link, so no dead link can ship by accident.
+
+  SELF-CONTAINED BY CONSTRAINT: no framework, no web font, no analytics, no external request.
+  Conference network capacity is the binding constraint. Colours are the poster's own tokens
+  (parts/colors-values.tex), so the page reads as continuous with the printed sheet. Link text uses
+  `chromedeep' rather than `chromecore' because the poster's palette checker measures the core rung at
+  2.65 : 1 on the light ground and the deep rung at 4.66 : 1.
+  ==================================================================================================
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How do RNNs encode mixtures? — CCN 2026 poster</title>
+<meta name="description" content="Supporting details, references, and the extended abstract for the CCN 2026 poster on how recurrent networks encode mixtures.">
+<style>
+  :root {
+    --bg: #F1F3F3; --surface: #FBFCFC; --border: #DBDFDF;
+    --text: #1B2224; --text-2: #586366; --text-3: #6E797B;
+    --accent: #0C7A72; --badge-bg: #0C7A72; --badge-fg: #FFFFFF;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #12191A; --surface: #1A2325; --border: #2C3739;
+      --text: #EDF1F1; --text-2: #AFB9BA; --text-3: #8C9698;
+      --accent: #35C4BA; --badge-bg: #12A89E; --badge-fg: #0B1213;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 1.5rem 1.15rem 4rem;
+    background: var(--bg); color: var(--text);
+    font: 1rem/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-text-size-adjust: 100%;
+  }
+  main { max-width: 42rem; margin: 0 auto; }
+  h1 { font-size: 1.5rem; line-height: 1.25; margin: 0 0 .35rem; letter-spacing: -.01em; }
+  .deck { color: var(--text-2); font-size: 1.05rem; margin: 0 0 1.1rem; }
+  .byline { color: var(--text-2); font-size: .95rem; margin: 0 0 .2rem; }
+  .affil { color: var(--text-3); font-size: .85rem; margin: 0; }
+  h2 {
+    font-size: .78rem; text-transform: uppercase; letter-spacing: .09em;
+    color: var(--text-3); margin: 2.4rem 0 .3rem; font-weight: 600;
+  }
+  .hint { color: var(--text-3); font-size: .9rem; margin: 0 0 .7rem; }
+  hr { border: 0; border-top: 1px solid var(--border); margin: 1.5rem 0 0; }
+  ol, ul { list-style: none; margin: 0; padding: 0; }
+  li { border-bottom: 1px solid var(--border); }
+  li:first-child { border-top: 1px solid var(--border); }
+  /* One row shape for every resource, whether it is a link or still pending. */
+  .row {
+    display: flex; align-items: center; gap: .85rem;
+    padding: .85rem .55rem; min-height: 3rem;
+    text-decoration: none; color: var(--text);
+  }
+  a.row:hover, a.row:focus-visible { background: var(--surface); }
+  a.row:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+  a.row .label { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+  .badge {
+    flex: 0 0 auto; width: 1.85rem; height: 1.85rem; border-radius: .42rem;
+    background: var(--badge-bg); color: var(--badge-fg);
+    display: grid; place-items: center; font-size: .95rem; font-weight: 600;
+  }
+  .label { flex: 1 1 auto; }
+  .pending .label { color: var(--text-3); }
+  .pending .badge { background: transparent; color: var(--text-3); border: 1px solid var(--border); }
+  .tag {
+    flex: 0 0 auto; font-size: .72rem; letter-spacing: .04em; text-transform: uppercase;
+    color: var(--text-3); border: 1px solid var(--border); border-radius: .8rem; padding: .12rem .5rem;
+  }
+  footer { color: var(--text-3); font-size: .85rem; margin-top: 2.6rem; }
+  footer a { color: var(--accent); }
+</style>
+</head>
+<body>
+<main>
+
+  <h1>How do RNNs encode mixtures?</h1>
+  <p class="deck">One network yields distinct geometries.</p>
+  <p class="byline">Esther Poniatowski &middot; Claire Sergent</p>
+  <p class="affil">Integrative Neuroscience and Cognition Center (INCC), CNRS UMR 8002, Université Paris Cité</p>
+  <hr>
+
+  <h2>Supporting details</h2>
+  <p class="hint">The numbers match the badges on the poster.</p>
+  <ol>
+    <li id="s1"><a class="row" href="supplement.pdf#page=1"><span class="badge">1</span><span class="label">Model</span></a></li>
+    <li id="s2"><a class="row" href="supplement.pdf#page=4"><span class="badge">2</span><span class="label">Two-transformation response map</span></a></li>
+    <li id="s3"><a class="row" href="supplement.pdf#page=5"><span class="badge">3</span><span class="label">Coordinate factorization</span></a></li>
+    <li id="s4"><a class="row" href="supplement.pdf#page=5"><span class="badge">4</span><span class="label">Condition for pure scaling</span></a></li>
+    <li id="s5"><a class="row" href="supplement.pdf#page=6"><span class="badge">5</span><span class="label">Condition for in-plane geometry</span></a></li>
+    <li id="s6"><a class="row" href="supplement.pdf#page=7"><span class="badge">6</span><span class="label">Input variance vs. similarity</span></a></li>
+    <li id="s7"><a class="row" href="supplement.pdf#page=9"><span class="badge">7</span><span class="label">Divisive normalization vs. network model</span></a></li>
+  </ol>
+
+  <h2>Documents</h2>
+  <ul>
+    <li><a class="row" href="supplement.pdf"><span class="badge">&#8595;</span><span class="label">Supporting details, complete</span><span class="tag">PDF</span></a></li>
+    <!-- PENDING: add href="supplement.pdf#references" once the reference section is built. -->
+    <li><span class="row pending"><span class="badge">&#8595;</span><span class="label">Full reference list</span><span class="tag">before the session</span></span></li>
+    <!-- PENDING: add href="abstract.pdf" once self-hosting is confirmed. -->
+    <li><span class="row pending"><span class="badge">&#8595;</span><span class="label">Extended abstract</span><span class="tag">before the session</span></span></li>
+    <!-- PENDING: add href="poster.pdf" once a downsampled copy exists. -->
+    <li><span class="row pending"><span class="badge">&#8595;</span><span class="label">Poster</span><span class="tag">before the session</span></span></li>
+  </ul>
+
+  <h2>Contact</h2>
+  <ul>
+    <li><a class="row" href="mailto:esther.poniatowski@ens.psl.eu"><span class="badge">&#9993;</span><span class="label">esther.poniatowski@ens.psl.eu</span></a></li>
+    <!-- PENDING: replace with the LinkedIn profile URL. -->
+    <li><span class="row pending"><span class="badge">&#8599;</span><span class="label">Esther Poniatowski — LinkedIn</span><span class="tag">URL needed</span></span></li>
+    <!-- PENDING: replace with the supervisor's homepage URL. -->
+    <li><span class="row pending"><span class="badge">&#8599;</span><span class="label">Claire Sergent — homepage</span><span class="tag">URL needed</span></span></li>
+  </ul>
+
+  <footer>
+    <!-- The meeting's own URL is deliberately absent: it was not verified, and an unverified link is
+         a defect. Add it once the address is confirmed. -->
+    <p>Poster presented at Cognitive Computational Neuroscience 2026, New York.</p>
+  </footer>
+
+</main>
+</body>
+</html>
