@@ -3,26 +3,31 @@
   FILE: 3-poster/landing/index.html
   ==================================================================================================
   The landing page the poster's QR code resolves to. Design record: ../qr-strategy.md.
+  Published by ../scripts/deploy-landing.sh, which also refuses to publish a link whose target file
+  is absent from the deploy directory -- run it rather than copying files by hand.
 
-  THIS PAGE IS AN INDEX, NEVER A COPY. The seven titles below are owned by supplement/point-*.tex and
-  the page numbers by the built supplement.pdf; nothing here restates the supplement's prose. Re-read
-  both after any renumbering -- the badge numbers on the poster, the \suphead numbers in the
-  supplement, and the list numbers here are three places that must agree.
+  THIS PAGE IS AN INDEX OF THE SUPPLEMENT, NEVER A COPY. The seven titles below are owned by
+  supplement/point-*.tex; nothing here restates the supplement's prose. The badge numbers on the
+  poster, the \suphead numbers in the supplement, and the list numbers here are three places that
+  must agree, so re-read all three after any renumbering.
 
-  MEASURED PAGE STARTS (supplement.pdf, 10 pages): 1 -> p1, 2 -> p4, 3 -> p5, 4 -> p5, 5 -> p6,
-  6 -> p7, 7 -> p9. Points 3 and 4 share page 5, so their deep links land on the same page.
+  NO `#page=N' FRAGMENT ON ANY ROW, AND ADDING ONE IS A REGRESSION. A page fragment is positional:
+  it must be re-measured on every supplement rebuild, and it rots silently when a point moves. What
+  it buys is a page jump on desktop Chrome and Firefox only -- mobile Safari ignores it, and a phone
+  is what scans a poster. Every row therefore opens the document plainly, and the number is resolved
+  by the supplement's own numbered headings once the reader is inside.
+
+  THE REFERENCE LIST IS OWNED HERE, and it is the only resource on this page that exists nowhere
+  else. Its source is ../../2-camera-ready/references.bib plus the four works cited on the poster
+  alone (Xiao & Huang, Reynolds, Sadagopan & Wang, Juavinett & Callaway), which that bibliography
+  does not carry. It is ALPHABETICAL AND UNNUMBERED by design: a number beside a reference would
+  wear the same rounded badge as a supplement point three centimetres away on the printed sheet, and
+  a distinct look must mean a distinct notion. Adding a citation to the poster adds an entry here.
 
   EVERY UNRESOLVED ITEM IS MARKED `pending' AND RENDERS AS PLAIN TEXT, NEVER AS A LINK, so no dead
   link can ship. A row may only become a link once its target exists IN THE PUBLISHED DIRECTORY --
   the supplement building correctly in the poster tree is not the same fact, and treating it as the
   same is what put seven dead links on the first published stub.
-
-  BEFORE PUBLISHING, five items must be resolved:
-    - supplement.pdf           -> publish it here, then relink the seven numbered rows
-    - the reference list       -> add the final section to supplement.tex, then link it
-    - abstract.pdf             -> confirm the CCN author agreement permits self-hosting, then add
-    - poster.pdf               -> add a downsampled copy (the build output is 2.7 MB)
-    - the two personal links   -> supply the LinkedIn and the supervisor's homepage URLs
 
   SELF-CONTAINED BY CONSTRAINT: no framework, no web font, no analytics, no external request.
   Conference network capacity is the binding constraint. Colours are the poster's own tokens
@@ -95,6 +100,12 @@
     flex: 0 0 auto; font-size: .72rem; letter-spacing: .04em; text-transform: uppercase;
     color: var(--text-3); border: 1px solid var(--border); border-radius: .8rem; padding: .12rem .5rem;
   }
+  /* References are read on the page rather than opened, so they take a text shape, not the row
+     shape above: no badge, no fixed height, and the author-year lead in the page's own text colour. */
+  .refs li { padding: .75rem .55rem; font-size: .92rem; line-height: 1.5; color: var(--text-2); }
+  .refs .who { color: var(--text); font-weight: 600; }
+  .refs .venue { font-style: italic; }
+  .refs a { color: var(--accent); text-underline-offset: 2px; }
   footer { color: var(--text-3); font-size: .85rem; margin-top: 2.6rem; }
   footer a { color: var(--accent); }
 </style>
@@ -109,39 +120,103 @@
   <hr>
 
   <h2>Supporting details</h2>
-  <p class="hint">The numbers match the badges on the poster. The document is posted before the session.</p>
-  <!-- PENDING: the seven rows below become links the moment supplement.pdf is added to this
-       directory. Restore each by wrapping the row in <a class="row" href="supplement.pdf#page=N">
-       with the page number given in the header above, and drop the `pending' class and the tag. -->
+  <p class="hint">The numbers match the badges on the poster. Every row opens the supplement, where the same numbers head its sections.</p>
   <ol>
-    <li id="s1"><span class="row pending numbered"><span class="badge">1</span><span class="label">Model</span><span class="tag">soon</span></span></li>
-    <li id="s2"><span class="row pending numbered"><span class="badge">2</span><span class="label">Two-transformation response map</span><span class="tag">soon</span></span></li>
-    <li id="s3"><span class="row pending numbered"><span class="badge">3</span><span class="label">Coordinate factorization</span><span class="tag">soon</span></span></li>
-    <li id="s4"><span class="row pending numbered"><span class="badge">4</span><span class="label">Condition for pure scaling</span><span class="tag">soon</span></span></li>
-    <li id="s5"><span class="row pending numbered"><span class="badge">5</span><span class="label">Condition for in-plane geometry</span><span class="tag">soon</span></span></li>
-    <li id="s6"><span class="row pending numbered"><span class="badge">6</span><span class="label">Input variance vs. similarity</span><span class="tag">soon</span></span></li>
-    <li id="s7"><span class="row pending numbered"><span class="badge">7</span><span class="label">Divisive normalization vs. network model</span><span class="tag">soon</span></span></li>
+    <li id="s1"><a class="row numbered" href="supplement.pdf"><span class="badge">1</span><span class="label">Model</span></a></li>
+    <li id="s2"><a class="row numbered" href="supplement.pdf"><span class="badge">2</span><span class="label">Two-transformation response map</span></a></li>
+    <li id="s3"><a class="row numbered" href="supplement.pdf"><span class="badge">3</span><span class="label">Coordinate factorization</span></a></li>
+    <li id="s4"><a class="row numbered" href="supplement.pdf"><span class="badge">4</span><span class="label">Condition for pure scaling</span></a></li>
+    <li id="s5"><a class="row numbered" href="supplement.pdf"><span class="badge">5</span><span class="label">Condition for in-plane geometry</span></a></li>
+    <li id="s6"><a class="row numbered" href="supplement.pdf"><span class="badge">6</span><span class="label">Input variance vs. similarity</span></a></li>
+    <li id="s7"><a class="row numbered" href="supplement.pdf"><span class="badge">7</span><span class="label">Divisive normalization vs. network model</span></a></li>
   </ol>
 
   <h2>Documents</h2>
   <ul>
-    <!-- PENDING: add href="supplement.pdf" once the file is published here. -->
-    <li><span class="row pending"><span class="badge">&#8595;</span><span class="label">Supporting details, complete</span><span class="tag">before the session</span></span></li>
-    <!-- PENDING: add href="supplement.pdf#references" once the reference section is built. -->
-    <li><span class="row pending"><span class="badge">&#8595;</span><span class="label">Full reference list</span><span class="tag">before the session</span></span></li>
-    <!-- PENDING: add href="abstract.pdf" once self-hosting is confirmed. -->
-    <li><span class="row pending"><span class="badge">&#8595;</span><span class="label">Extended abstract</span><span class="tag">before the session</span></span></li>
-    <!-- PENDING: add href="poster.pdf" once a downsampled copy exists. -->
+    <li><a class="row" href="supplement.pdf"><span class="badge">&#8595;</span><span class="label">Supporting details, complete</span></a></li>
+    <li><a class="row" href="abstract.pdf"><span class="badge">&#8595;</span><span class="label">Extended abstract</span></a></li>
+    <li><a class="row" href="#references"><span class="badge">&#9776;</span><span class="label">Full reference list</span><span class="tag">on this page</span></a></li>
+    <!-- PENDING: add href="poster.pdf" once a downsampled copy exists (the build output is 2.7 MB). -->
     <li><span class="row pending"><span class="badge">&#8595;</span><span class="label">Poster</span><span class="tag">before the session</span></span></li>
   </ul>
 
   <h2>Contact</h2>
   <ul>
     <li><a class="row" href="mailto:esther.poniatowski@ens.psl.eu"><span class="badge">&#9993;</span><span class="label">esther.poniatowski@ens.psl.eu</span></a></li>
-    <!-- PENDING: replace with the LinkedIn profile URL. -->
-    <li><span class="row pending"><span class="badge">&#8599;</span><span class="label">Esther Poniatowski — LinkedIn</span><span class="tag">URL needed</span></span></li>
-    <!-- PENDING: replace with the supervisor's homepage URL. -->
-    <li><span class="row pending"><span class="badge">&#8599;</span><span class="label">Claire Sergent — homepage</span><span class="tag">URL needed</span></span></li>
+    <li><a class="row" href="https://www.linkedin.com/in/esther-poniatowski/"><span class="badge">&#8599;</span><span class="label">Esther Poniatowski — LinkedIn</span></a></li>
+    <li><a class="row" href="https://sergent-consciousness-lab.u-paris.fr/"><span class="badge">&#8599;</span><span class="label">Sergent Consciousness Lab</span></a></li>
+  </ul>
+
+  <h2 id="references">References</h2>
+  <p class="hint">The works cited on the poster and in the extended abstract, in alphabetical order.</p>
+  <ul class="refs">
+    <li><span class="who">Beiran, Dubreuil, Valente, Mastrogiuseppe &amp; Ostojic (2021).</span>
+      Shaping dynamics with multiple populations in low-rank recurrent networks.
+      <span class="venue">Neural Computation</span> 33(6), 1572–1615.
+      <a href="https://doi.org/10.1162/neco_a_01381">doi.org/10.1162/neco_a_01381</a></li>
+    <li><span class="who">Busse, Wade &amp; Carandini (2009).</span>
+      Representation of concurrent stimuli by population activity in visual cortex.
+      <span class="venue">Neuron</span> 64(6), 931–942.
+      <a href="https://doi.org/10.1016/j.neuron.2009.11.004">doi.org/10.1016/j.neuron.2009.11.004</a></li>
+    <li><span class="who">Carandini &amp; Heeger (2012).</span>
+      Normalization as a canonical neural computation.
+      <span class="venue">Nature Reviews Neuroscience</span> 13(1), 51–62.
+      <a href="https://doi.org/10.1038/nrn3136">doi.org/10.1038/nrn3136</a></li>
+    <li><span class="who">Clark, Marschall, van Meegen &amp; Litwin-Kumar (2025).</span>
+      Connectivity structure and dynamics of nonlinear recurrent neural networks.
+      <span class="venue">Physical Review X</span> 15(4).
+      <a href="https://doi.org/10.1103/2jt7-c8cq">doi.org/10.1103/2jt7-c8cq</a></li>
+    <li><span class="who">Dubreuil, Valente, Beiran, Mastrogiuseppe &amp; Ostojic (2022).</span>
+      The role of population structure in computations through neural dynamics.
+      <span class="venue">Nature Neuroscience</span> 25(6), 783–794.
+      <a href="https://doi.org/10.1038/s41593-022-01088-4">doi.org/10.1038/s41593-022-01088-4</a></li>
+    <li><span class="who">Juavinett &amp; Callaway (2015).</span>
+      Pattern and component motion responses in mouse visual cortical areas.
+      <span class="venue">Current Biology</span> 25(13), 1759–1764.
+      <a href="https://doi.org/10.1016/j.cub.2015.05.028">doi.org/10.1016/j.cub.2015.05.028</a></li>
+    <li><span class="who">Mante, Sussillo, Shenoy &amp; Newsome (2013).</span>
+      Context-dependent computation by recurrent dynamics in prefrontal cortex.
+      <span class="venue">Nature</span> 503(7474), 78–84.
+      <a href="https://doi.org/10.1038/nature12742">doi.org/10.1038/nature12742</a></li>
+    <li><span class="who">Mastrogiuseppe &amp; Ostojic (2018).</span>
+      Linking connectivity, dynamics, and computations in low-rank recurrent neural networks.
+      <span class="venue">Neuron</span> 99(3), 609–623.
+      <a href="https://doi.org/10.1016/j.neuron.2018.07.003">doi.org/10.1016/j.neuron.2018.07.003</a></li>
+    <li><span class="who">Orhan &amp; Ma (2015).</span>
+      Neural population coding of multiple stimuli.
+      <span class="venue">Journal of Neuroscience</span> 35(9), 3825–3841.
+      <a href="https://doi.org/10.1523/JNEUROSCI.4097-14.2015">doi.org/10.1523/JNEUROSCI.4097-14.2015</a></li>
+    <li><span class="who">Reynolds, Chelazzi &amp; Desimone (1999).</span>
+      Competitive mechanisms subserve attention in macaque areas V2 and V4.
+      <span class="venue">Journal of Neuroscience</span> 19(5), 1736–1753.
+      <a href="https://doi.org/10.1523/JNEUROSCI.19-05-01736.1999">doi.org/10.1523/JNEUROSCI.19-05-01736.1999</a></li>
+    <li><span class="who">Rigotti, Barak, Warden, Wang, Daw, Miller &amp; Fusi (2013).</span>
+      The importance of mixed selectivity in complex cognitive tasks.
+      <span class="venue">Nature</span> 497(7451), 585–590.
+      <a href="https://doi.org/10.1038/nature12160">doi.org/10.1038/nature12160</a></li>
+    <li><span class="who">Rust, Mante, Simoncelli &amp; Movshon (2006).</span>
+      How MT cells analyze the motion of visual patterns.
+      <span class="venue">Nature Neuroscience</span> 9(11), 1421–1431.
+      <a href="https://doi.org/10.1038/nn1786">doi.org/10.1038/nn1786</a></li>
+    <li><span class="who">Sadagopan &amp; Wang (2009).</span>
+      Nonlinear spectrotemporal interactions underlying selectivity for complex sounds in auditory cortex.
+      <span class="venue">Journal of Neuroscience</span> 29(36), 11192–11202.
+      <a href="https://doi.org/10.1523/JNEUROSCI.1286-09.2009">doi.org/10.1523/JNEUROSCI.1286-09.2009</a></li>
+    <li><span class="who">Schuessler, Dubreuil, Mastrogiuseppe, Ostojic &amp; Barak (2020).</span>
+      Dynamics of random recurrent networks with correlated low-rank structure.
+      <span class="venue">Physical Review Research</span> 2(1), 013111.
+      <a href="https://doi.org/10.1103/physrevresearch.2.013111">doi.org/10.1103/physrevresearch.2.013111</a></li>
+    <li><span class="who">Schuessler, Mastrogiuseppe, Dubreuil, Ostojic &amp; Barak (2020).</span>
+      The interplay between randomness and structure during learning in RNNs.
+      <span class="venue">Advances in Neural Information Processing Systems</span> 33.</li>
+    <li><span class="who">Xiao &amp; Huang (2015).</span>
+      Distributed and dynamic neural encoding of multiple motion directions of transparently moving stimuli in cortical area MT.
+      <span class="venue">Journal of Neuroscience</span> 35(49), 16180–16198.
+      <a href="https://doi.org/10.1523/JNEUROSCI.2175-15.2015">doi.org/10.1523/JNEUROSCI.2175-15.2015</a></li>
+    <li><span class="who">Zoccolan, Cox &amp; DiCarlo (2005).</span>
+      Multiple object response normalization in monkey inferotemporal cortex.
+      <span class="venue">Journal of Neuroscience</span> 25(36), 8150–8164.
+      <a href="https://doi.org/10.1523/JNEUROSCI.2058-05.2005">doi.org/10.1523/JNEUROSCI.2058-05.2005</a></li>
   </ul>
 
   <footer>
