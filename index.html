@@ -26,6 +26,14 @@
   prose. The badge numbers on the poster, the \suphead numbers in the supplement, and the list
   numbers here are three places that must agree, so re-read all three after any renumbering.
 
+  THE SEVEN ROWS ARE DELIBERATELY NOT LINKS. Seven links to one 364 kB document invite a reader to
+  fetch the same file up to seven times over a conference network, and each fetch buys nothing: the
+  document opens at page one either way. The rows carry the number, the title and the gloss -- enough
+  to match a poster badge and to decide whether to open the document -- and the document itself is
+  linked ONCE, under Documents. The `s1'..`s7' anchors stay, so `.../ccn2026/#s4' remains typable
+  from a printed badge. Serving each point as its own page would restore per-point links; that is a
+  different site, not a change to this one.
+
   NO `#page=N' FRAGMENT ON ANY ROW, AND ADDING ONE IS A REGRESSION. A page fragment is positional:
   it must be re-measured on every supplement rebuild, and it rots silently when a point moves. What
   it buys is a page jump on desktop Chrome and Firefox only -- mobile Safari ignores it, and a phone
@@ -187,21 +195,21 @@
   </div>
 
   <h2>Supporting details</h2>
-  <p class="hint">The numbers match the badges on the poster. Every row opens the supplement, where the same numbers head its sections.</p>
+  <p class="hint">The numbers match the badges on the poster. All seven points sit in the single document linked below.</p>
   <ol>
-    <li id="s1"><a class="row numbered" href="supplement.pdf"><span class="badge">1</span><span class="label"><span class="title">Model</span><span class="sub">the recurrent network, its structured connectivity, and the collective coordinates it reduces to</span></span></a></li>
-    <li id="s2"><a class="row numbered" href="supplement.pdf"><span class="badge">2</span><span class="label"><span class="title">Two-transformation response map</span><span class="sub">the input is projected into collective coordinates, then amplified by recurrent feedback</span></span></a></li>
-    <li id="s3"><a class="row numbered" href="supplement.pdf"><span class="badge">3</span><span class="label"><span class="title">Coordinate factorization</span><span class="sub">along each principal direction, the response is a drive rescaled by an amplification factor</span></span></a></li>
-    <li id="s4"><a class="row numbered" href="supplement.pdf"><span class="badge">4</span><span class="label"><span class="title">Condition for pure scaling</span><span class="sub">uniform amplification keeps the mixture aligned with the proportional sum</span></span></a></li>
-    <li id="s5"><a class="row numbered" href="supplement.pdf"><span class="badge">5</span><span class="label"><span class="title">Condition for in-plane geometry</span><span class="sub">what keeps a rotated response inside the plane the components span</span></span></a></li>
-    <li id="s6"><a class="row numbered" href="supplement.pdf"><span class="badge">6</span><span class="label"><span class="title">Input variance vs. similarity</span><span class="sub">why superposing two inputs shifts the gain, and how dissimilarity sets the shift</span></span></a></li>
-    <li id="s7"><a class="row numbered" href="supplement.pdf"><span class="badge">7</span><span class="label"><span class="title">Divisive normalization vs. network model</span><span class="sub">where the two agree, and where the circuit bias saturates while the power law grows</span></span></a></li>
+    <li id="s1"><span class="row numbered"><span class="badge">1</span><span class="label"><span class="title">Model</span><span class="sub">the recurrent network, its structured connectivity, and the collective coordinates it reduces to</span></span></span></li>
+    <li id="s2"><span class="row numbered"><span class="badge">2</span><span class="label"><span class="title">Two-transformation response map</span><span class="sub">the input is projected into collective coordinates, then amplified by recurrent feedback</span></span></span></li>
+    <li id="s3"><span class="row numbered"><span class="badge">3</span><span class="label"><span class="title">Coordinate factorization</span><span class="sub">along each principal direction, the response is a drive rescaled by an amplification factor</span></span></span></li>
+    <li id="s4"><span class="row numbered"><span class="badge">4</span><span class="label"><span class="title">Condition for pure scaling</span><span class="sub">uniform amplification keeps the mixture aligned with the proportional sum</span></span></span></li>
+    <li id="s5"><span class="row numbered"><span class="badge">5</span><span class="label"><span class="title">Condition for in-plane geometry</span><span class="sub">what keeps a rotated response inside the plane the components span</span></span></span></li>
+    <li id="s6"><span class="row numbered"><span class="badge">6</span><span class="label"><span class="title">Input variance vs. similarity</span><span class="sub">why superposing two inputs shifts the gain, and how dissimilarity sets the shift</span></span></span></li>
+    <li id="s7"><span class="row numbered"><span class="badge">7</span><span class="label"><span class="title">Divisive normalization vs. network model</span><span class="sub">where the two agree, and where the circuit bias saturates while the power law grows</span></span></span></li>
   </ol>
 
   <h2>Documents</h2>
   <ul>
     <li><a class="row" href="supplement.pdf"><span class="badge">&#8595;</span><span class="label"><span class="title">Supporting details, complete</span><span class="sub">the seven points above, with the derivations behind them</span></span></a></li>
-    <li><a class="row" href="abstract.pdf"><span class="badge">&#8595;</span><span class="label"><span class="title">Extended abstract</span><span class="sub">the four-page account presented at the conference</span></span></a></li>
+    <li><a class="row" href="https://openreview.net/forum?id=ix8hv1OnaB&amp;noteId=ix8hv1OnaB"><span class="badge">&#8599;</span><span class="label"><span class="title">Extended abstract</span><span class="sub">the four-page account presented at the conference, on OpenReview</span></span></a></li>
     <li><a class="row" href="#references"><span class="badge">&#9776;</span><span class="label"><span class="title">Full reference list</span><span class="sub">the works cited on the poster and in the abstract</span></span><span class="tag">on this page</span></a></li>
     <!-- PENDING: add href="poster.pdf" once a downsampled copy exists (the build output is 2.7 MB). -->
     <li><span class="row pending"><span class="badge">&#8595;</span><span class="label"><span class="title">Poster</span></span><span class="tag">before the session</span></span></li>
@@ -288,10 +296,9 @@
 
   <footer>
     <!-- The meeting's own URL is deliberately absent: it was not verified, and an unverified link is
-         a defect. Add it once the address is confirmed. The licence is read off the abstract's own
-         footer line, not assumed. -->
-    <p>Poster presented at the 9th Conference on Cognitive Computational Neuroscience, New York, 2026.
-      The extended abstract is licensed under CC BY 4.0.</p>
+         a defect. Add it once the address is confirmed. The abstract's licence is stated by OpenReview,
+         which now distributes it, so it is not restated here. -->
+    <p>Poster presented at the 9th Conference on Cognitive Computational Neuroscience, New York, 2026.</p>
   </footer>
 
 </main>
