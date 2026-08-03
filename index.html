@@ -11,15 +11,15 @@
   meets first is the scientific claim the poster makes, because a reader who scans a code at a
   conference arrives wanting the result, not a file listing.
 
-  THE OPENING SUMMARY FOLLOWS THE POSTER'S SPINE, NOT THE ABSTRACT'S: two questions, each with its
-  answer -- which codes are possible a priori, then which mechanisms select one. Its claims trace to
-  parts/block-columns.tex and to the two answer figures.
+  THE OPENING PARAGRAPH ORIENTS; IT DOES NOT RESTATE THE POSTER. Three sentences, and growing it back
+  is the failure to guard against: this page exists to carry the SUPPLEMENTARY material, so every
+  mechanism, condition and prediction the poster already states belongs in supplement.pdf, not here.
+  A reader arriving from the printed sheet has just read the argument, and one arriving cold needs
+  only enough to know what the material below is about.
 
-  ONE DISTINCTION IN IT IS LOAD-BEARING AND EASY TO FLATTEN. The two transformations do not factorize,
-  which is why figures/mechanism-tree.tex is a tree and not a grid: the projection only OPENS routes,
-  and the amplification decides which is taken. A flat profile therefore returns the response to the
-  components plane however many directions are open. Writing that three active directions "carry the
-  response out of the plane" states the gate as if it were the selector, and is wrong.
+  ITS WORDING TRACKS parts/block-columns.tex, which is authoritative -- the starting point, the
+  observation, the goal, and the two answer headings. Do not source it from the extended abstract,
+  whose framing the poster supersedes, nor from a figure file's commentary.
 
   THE SEVEN TITLES ARE OWNED BY supplement/point-*.tex, and the one-line glosses beneath them belong
   to this page: they orient a reader deciding what to open, and they never restate the supplement's
@@ -99,12 +99,6 @@
      tone the hints wear: it is the content a reader came for, not an annotation on the lists. */
   .lede p { margin: 0 0 .8rem; color: var(--text-2); }
   .lede strong { color: var(--text); font-weight: 600; }
-  .lede ul { margin: 0 0 .8rem; padding: 0; }
-  /* Two class levels, not one: the resource rows below take their separators from `li' and
-     `li:first-child', and a single-class selector ties on specificity with the latter, so the summary
-     list would inherit a rule intended for the lists of links. */
-  .lede ul li, .lede ul li:first-child { border: 0; padding: .18rem 0 .18rem 1.1rem; position: relative; }
-  .lede ul li::before { content: "—"; position: absolute; left: 0; color: var(--text-3); }
   hr { border: 0; border-top: 1px solid var(--border); margin: 1.5rem 0 0; }
   ol, ul { list-style: none; margin: 0; padding: 0; }
   li { border-bottom: 1px solid var(--border); }
@@ -156,42 +150,12 @@
   <p class="affil">Integrative Neuroscience and Cognition Center (INCC), CNRS UMR 8002, Université Paris Cité</p>
   <hr>
 
-  <h2>From geometry to mechanism</h2>
   <div class="lede">
-    <p>Natural inputs often mix simpler components: overlapping gratings in vision, mixed voices in
-      audition, odour blends in olfaction. Single neurons respond to such mixtures heterogeneously:
-      some average the two component responses, others favour one component, others respond to the
-      mixture alone. Across a population, however, a mixture elicits one activity vector, whose
-      position relative to the component vectors is what varies systematically.</p>
-
-    <p><strong>Which mixture codes are possible, <em>a priori</em>?</strong> The mixture vector splits
-      into a part inside the plane that the component vectors span, and a residual orthogonal to it.
-      Two independent properties follow: the <strong>balance</strong> between the components, read
-      against their balance in the input, and the <strong>emergence</strong> of a residual outside
-      their plane. Either property varies without constraining the other, so exactly four geometries
-      are possible.</p>
-
-    <p><strong>Which network mechanisms select the geometry?</strong> A reduced recurrent model links
-      connectivity to geometry through two successive transformations of the input. The feedforward
-      projection sets how many intrinsic directions the two components jointly activate, which opens
-      the available routes. The recurrent amplification then rescales the projection along each
-      direction, and decides which route is taken.</p>
-    <ul>
-      <li>A flat amplification profile rescales the linear sum, so the response stays aligned however
-        many directions are open.</li>
-      <li>An uneven profile across two directions rotates the response inside the component plane.</li>
-      <li>An uneven profile across three or more directions carries it out of that plane.</li>
-    </ul>
-
-    <p>Each property constrains what a downstream readout recovers. A biased combination can implement
-      attentional selection by gain control, whereas an emergent pattern is linearly separable from its
-      components, and therefore readable as a distinct identity. Three testable signatures follow:</p>
-    <ul>
-      <li>The biased, out-of-plane geometry is the generic outcome; the others require special inputs
-        or connectivity.</li>
-      <li>Emergence requires dissimilar components, and grows as they separate.</li>
-      <li>Bias decreases with stimulus intensity.</li>
-    </ul>
+    <p>Natural inputs often mix simpler components, and single neurons respond to such mixtures
+      heterogeneously. Across a whole network, the response geometry varies along two independent
+      properties: its <strong>balance</strong> relative to the input, and the <strong>emergence</strong>
+      of a pattern outside the components' plane. Two successive transformations of the input control
+      which geometry arises.</p>
   </div>
 
   <h2>Supporting details</h2>
