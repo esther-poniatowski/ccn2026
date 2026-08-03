@@ -11,10 +11,15 @@
   meets first is the scientific claim the poster makes, because a reader who scans a code at a
   conference arrives wanting the result, not a file listing.
 
-  THE OPENING SUMMARY IS THE AUTHORS' OWN, sourced from ../../2-camera-ready/ and from the poster.
-  Every claim in it traces to one of those two documents -- what recordings establish, what divisive
-  normalization does and does not cover, and what this analysis derives are marked apart, so a reader
-  can tell established background from the present contribution.
+  THE OPENING SUMMARY FOLLOWS THE POSTER'S SPINE, NOT THE ABSTRACT'S: two questions, each with its
+  answer -- which codes are possible a priori, then which mechanisms select one. Its claims trace to
+  parts/block-columns.tex and to the two answer figures.
+
+  ONE DISTINCTION IN IT IS LOAD-BEARING AND EASY TO FLATTEN. The two transformations do not factorize,
+  which is why figures/mechanism-tree.tex is a tree and not a grid: the projection only OPENS routes,
+  and the amplification decides which is taken. A flat profile therefore returns the response to the
+  components plane however many directions are open. Writing that three active directions "carry the
+  response out of the plane" states the gate as if it were the selector, and is wrong.
 
   THE SEVEN TITLES ARE OWNED BY supplement/point-*.tex, and the one-line glosses beneath them belong
   to this page: they orient a reader deciding what to open, and they never restate the supplement's
@@ -143,27 +148,42 @@
   <p class="affil">Integrative Neuroscience and Cognition Center (INCC), CNRS UMR 8002, Université Paris Cité</p>
   <hr>
 
-  <h2>Question and result</h2>
+  <h2>From geometry to mechanism</h2>
   <div class="lede">
-    <p>Natural inputs are often superimpositions of simpler components: overlapping gratings in vision,
-      mixed voices in audition, odour blends in olfaction. For such mixtures, recordings report three
-      response geometries.</p>
+    <p>Natural inputs often mix simpler components: overlapping gratings in vision, mixed voices in
+      audition, odour blends in olfaction. Single neurons respond to such mixtures heterogeneously:
+      some average the two component responses, others favour one component, others respond to the
+      mixture alone. Across a population, however, a mixture elicits one activity vector, whose
+      position relative to the component vectors is what varies systematically.</p>
+
+    <p><strong>Which mixture codes are possible, <em>a priori</em>?</strong> The mixture vector splits
+      into a part inside the plane that the component vectors span, and a residual orthogonal to it.
+      Two independent properties follow: the <strong>balance</strong> between the components, read
+      against their balance in the input, and the <strong>emergence</strong> of a residual outside
+      their plane. Either property varies without constraining the other, so exactly four geometries
+      are possible.</p>
+
+    <p><strong>Which network mechanisms select the geometry?</strong> A reduced recurrent model links
+      connectivity to geometry through two successive transformations of the input. The feedforward
+      projection sets how many intrinsic directions the two components jointly activate, which opens
+      the available routes. The recurrent amplification then rescales the projection along each
+      direction, and decides which route is taken.</p>
     <ul>
-      <li>Both component responses combine in proportion to their input strengths.</li>
-      <li>One component is favoured over the other.</li>
-      <li>A pattern emerges that neither component alone elicits.</li>
+      <li>A flat amplification profile rescales the linear sum, so the response stays aligned however
+        many directions are open.</li>
+      <li>An uneven profile across two directions rotates the response inside the component plane.</li>
+      <li>An uneven profile across three or more directions carries it out of that plane.</li>
     </ul>
-    <p>Which circuit property selects which geometry? The divisive normalization model captures the
-      phenomenology of the first two. That model does not identify the network mechanism producing
-      them, and it cannot express emergence at all.</p>
-    <p>This theoretical study analyses a recurrent-network model and derives, analytically, the circuit
-      property that selects each geometry. The control quantity is the <strong>amplification
-      profile</strong> across the network's principal directions. A uniform profile leaves the mixture
-      aligned with the proportional sum. An uneven profile rotates the response inside the plane the
-      components span, and three or more driven directions carry it out of that plane.</p>
-    <p><strong>One network therefore produces all three geometries as the input varies, with no change
-      in synaptic weights.</strong> That flexibility carries computational implications for downstream
-      readouts.</p>
+
+    <p>Each property constrains what a downstream readout recovers. A biased combination can implement
+      attentional selection by gain control, whereas an emergent pattern is linearly separable from its
+      components, and therefore readable as a distinct identity. Three testable signatures follow:</p>
+    <ul>
+      <li>The biased, out-of-plane geometry is the generic outcome; the others require special inputs
+        or connectivity.</li>
+      <li>Emergence requires dissimilar components, and grows as they separate.</li>
+      <li>Bias decreases with stimulus intensity.</li>
+    </ul>
   </div>
 
   <h2>Supporting details</h2>
