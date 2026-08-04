@@ -11,15 +11,27 @@
   meets first is the scientific claim the poster makes, because a reader who scans a code at a
   conference arrives wanting the result, not a file listing.
 
-  THE OPENING PARAGRAPH ORIENTS; IT DOES NOT RESTATE THE POSTER. Three sentences, and growing it back
-  is the failure to guard against: this page exists to carry the SUPPLEMENTARY material, so every
-  mechanism, condition and prediction the poster already states belongs in supplement.pdf, not here.
-  A reader arriving from the printed sheet has just read the argument, and one arriving cold needs
-  only enough to know what the material below is about.
+  THE OPENING ORIENTS; IT DOES NOT RESTATE THE POSTER. Three sentences of set-up, then the two
+  questions with ONE sentence of answer each -- and growing either back is the failure to guard
+  against: this page exists to carry the SUPPLEMENTARY material, so every mechanism, condition and
+  prediction the poster already states belongs in supplement.pdf, not here. A reader arriving from
+  the printed sheet has just read the argument, and one arriving cold needs only enough to know what
+  the material below is about.
+
+  THE TWO PAIRS ARE SYMMETRIC, AND THE BOLD IS WHAT ENFORCES IT. Each answer names exactly two terms
+  in weight -- balance / emergence, feedforward projection / recurrent amplification -- because those
+  are the two pairs the poster's own answer boxes set as \propertylabels. Marking one answer's terms
+  and not the other's says, in the page's strongest channel, that one question mattered more.
 
   ITS WORDING TRACKS parts/block-columns.tex, which is authoritative -- the starting point, the
-  observation, the goal, and the two answer headings. Do not source it from the extended abstract,
-  whose framing the poster supersedes, nor from a figure file's commentary.
+  observation, the goal, the two question headings and the two answer headings. Do not source it from
+  the extended abstract, whose framing the poster supersedes, nor from a figure file's commentary.
+
+  THE TABLE OF CONTENTS REPLACED A `Documents' SECTION AT THE FOOT OF THE PAGE, and the move is what
+  makes the page navigable on a phone: the reader who scans arrives at a screen of prose and must be
+  told, without scrolling, what else is here. It therefore enumerates BOTH the page's own sections and
+  the documents that leave it -- there is no other list of off-page targets now, so an item dropped
+  from it becomes unreachable rather than merely demoted.
 
   THE SEVEN TITLES ARE OWNED BY supplement/point-*.tex, and the one-line glosses beneath them belong
   to this page: they orient a reader deciding what to open, and they never restate the supplement's
@@ -30,9 +42,11 @@
   fetch the same file up to seven times over a conference network, and each fetch buys nothing: the
   document opens at page one either way. The rows carry the number, the title and the gloss -- enough
   to match a poster badge and to decide whether to open the document -- and the document itself is
-  linked ONCE, under Documents. The `s1'..`s7' anchors stay, so `.../ccn2026/#s4' remains typable
-  from a printed badge. Serving each point as its own page would restore per-point links; that is a
-  different site, not a change to this one.
+  linked ONCE, in the row ABOVE them. That position is load-bearing: seven inert rows reached before
+  any link to the file read as seven broken links, which is how the section was first mis-built. The
+  `s1'..`s7' anchors stay, so `.../ccn2026/#s4' remains typable from a printed badge. Serving each
+  point as its own page would restore per-point links; that is a different site, not a change to this
+  one.
 
   NO `#page=N' FRAGMENT ON ANY ROW, AND ADDING ONE IS A REGRESSION. A page fragment is positional:
   it must be re-measured on every supplement rebuild, and it rots silently when a point moves. What
@@ -99,6 +113,38 @@
      tone the hints wear: it is the content a reader came for, not an annotation on the lists. */
   .lede p { margin: 0 0 .8rem; color: var(--text-2); }
   .lede strong { color: var(--text); font-weight: 600; }
+  /* THE TWO QUESTIONS ARE A DEFINITION LIST, not two more paragraphs: a question is a term and its
+     one-sentence answer is the definition, so the pairing is carried by the markup and a reader can
+     scan the two answers alone. The accent rule down the left binds each pair visually; it is the
+     poster's own device for the question -> answer spine. */
+  .qa { margin: 0; }
+  .qa .pair { border-left: 2px solid var(--accent); padding-left: .85rem; margin: 0 0 .9rem; }
+  .qa .pair:last-child { margin-bottom: 0; }
+  .qa dt { color: var(--text); font-weight: 600; margin: 0 0 .25rem; }
+  .qa dd { margin: 0; color: var(--text-2); }
+  /* THE TABLE OF CONTENTS IS NAVIGATION, NOT A RESOURCE LIST, and it may not borrow the resource
+     rows' devices: a numbered badge on this page means a supplement point, and a second notion
+     wearing the same badge is exactly the confusion the reference list is kept unnumbered to avoid.
+     It is therefore a surface panel of plain links, tighter than a row, read past in one glance.
+     WHAT BELONGS HERE is every destination the page offers -- its own sections and the documents
+     that leave it -- because this list replaced the Documents section and is now the only place an
+     off-page target is enumerated. A tag names what a reader is about to open. */
+  .toc {
+    background: var(--surface); border: 1px solid var(--border); border-radius: .6rem;
+    padding: 0 .9rem; margin: 1.6rem 0 0;
+  }
+  .toc h2 { margin: .9rem 0 0; }
+  .toc li, .toc li:first-child { border-top: 0; border-bottom: 1px solid var(--border); }
+  .toc li:last-child { border-bottom: 0; }
+  .toc .entry {
+    display: flex; align-items: baseline; gap: .7rem;
+    padding: .6rem 0; text-decoration: none; color: var(--text);
+  }
+  .toc .entry .title { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+  .toc .pending .title { color: var(--text-3); text-decoration: none; }
+  /* The document row sits between the section's hint and the seven contents rows, so it needs a gap
+     the borders alone do not give: without it the two lists abut and read as one nine-row list. */
+  .doclead { margin-bottom: 1.1rem; }
   hr { border: 0; border-top: 1px solid var(--border); margin: 1.5rem 0 0; }
   ol, ul { list-style: none; margin: 0; padding: 0; }
   li { border-bottom: 1px solid var(--border); }
@@ -152,14 +198,46 @@
 
   <div class="lede">
     <p>Natural inputs often mix simpler components, and single neurons respond to such mixtures
-      heterogeneously. Across a whole network, the response geometry varies along two independent
-      properties: its <strong>balance</strong> relative to the input, and the <strong>emergence</strong>
-      of a pattern outside the components' plane. Two successive transformations of the input control
-      which geometry arises.</p>
+      heterogeneously. Across a whole network, however, the code becomes interpretable. Two questions
+      follow:</p>
+    <dl class="qa">
+      <div class="pair">
+        <dt>Which distinct codes for mixtures are possible, <em>a priori</em>?</dt>
+        <dd>Mixture geometry varies along two independent properties: its <strong>balance</strong>
+          relative to the input, and the <strong>emergence</strong> of a pattern outside the
+          components' plane.</dd>
+      </div>
+      <div class="pair">
+        <dt>Which network mechanisms select the actual code?</dt>
+        <dd>Two successive transformations of the input control which geometry arises: a
+          <strong>feedforward projection</strong> onto the network's collective coordinates, then a
+          <strong>recurrent amplification</strong> of them.</dd>
+      </div>
+    </dl>
   </div>
 
-  <h2>Supporting details</h2>
-  <p class="hint">The numbers match the badges on the poster. All seven points sit in the single document linked below.</p>
+  <nav class="toc" aria-labelledby="contents">
+    <h2 id="contents">Contents</h2>
+    <ul>
+      <li><a class="entry" href="#details"><span class="label"><span class="title">Supporting details</span><span class="sub">the details about the model, assumptions, derivations, and implications</span></span></a></li>
+      <li><a class="entry" href="https://openreview.net/forum?id=ix8hv1OnaB&amp;noteId=ix8hv1OnaB"><span class="label"><span class="title">Extended abstract</span><span class="sub">the four-page account presented at the conference</span></span><span class="tag">OpenReview</span></a></li>
+      <!-- The published copy is the build output itself, at 2.5 MB. It is the heaviest thing this
+           page offers by a factor of seven, so it is a LINK a reader chooses, never something the
+           page fetches. Downsampling it would halve that; the source is named in ARTIFACTS
+           (scripts/deploy-landing.sh), and repointing that one entry is the whole change. -->
+      <li><a class="entry" href="poster.pdf"><span class="label"><span class="title">Poster</span><span class="sub">the printed sheet, as presented at the session</span></span><span class="tag">PDF</span></a></li>
+      <li><a class="entry" href="#references"><span class="label"><span class="title">References</span><span class="sub">the works cited on the poster and in the abstract</span></span></a></li>
+      <li><a class="entry" href="#contact"><span class="label"><span class="title">Contact</span></span></a></li>
+    </ul>
+  </nav>
+
+  <h2 id="details">Supporting details</h2>
+  <p class="hint">Each QR code pictogram on the poster refers to one point detailed in this PDF
+    document.</p>
+  <ul class="doclead">
+    <li><a class="row" href="supplement.pdf"><span class="badge">&#8595;</span><span class="label"><span class="title">Supporting details, complete</span></span></a></li>
+  </ul>
+  <p class="hint">Details address the following points:</p>
   <ol>
     <li id="s1"><span class="row numbered"><span class="badge">1</span><span class="label"><span class="title">Model</span><span class="sub">the recurrent network, its structured connectivity, and the collective coordinates it reduces to</span></span></span></li>
     <li id="s2"><span class="row numbered"><span class="badge">2</span><span class="label"><span class="title">Two-transformation response map</span><span class="sub">the input is projected into collective coordinates, then amplified by recurrent feedback</span></span></span></li>
@@ -170,16 +248,7 @@
     <li id="s7"><span class="row numbered"><span class="badge">7</span><span class="label"><span class="title">Divisive normalization vs. network model</span><span class="sub">where the two agree, and where the circuit bias saturates while the power law grows</span></span></span></li>
   </ol>
 
-  <h2>Documents</h2>
-  <ul>
-    <li><a class="row" href="supplement.pdf"><span class="badge">&#8595;</span><span class="label"><span class="title">Supporting details, complete</span><span class="sub">the seven points above, with the derivations behind them</span></span></a></li>
-    <li><a class="row" href="https://openreview.net/forum?id=ix8hv1OnaB&amp;noteId=ix8hv1OnaB"><span class="badge">&#8599;</span><span class="label"><span class="title">Extended abstract</span><span class="sub">the four-page account presented at the conference, on OpenReview</span></span></a></li>
-    <li><a class="row" href="#references"><span class="badge">&#9776;</span><span class="label"><span class="title">Full reference list</span><span class="sub">the works cited on the poster and in the abstract</span></span><span class="tag">on this page</span></a></li>
-    <!-- PENDING: add href="poster.pdf" once a downsampled copy exists (the build output is 2.7 MB). -->
-    <li><span class="row pending"><span class="badge">&#8595;</span><span class="label"><span class="title">Poster</span></span><span class="tag">before the session</span></span></li>
-  </ul>
-
-  <h2>Contact</h2>
+  <h2 id="contact">Contact</h2>
   <ul>
     <li><a class="row" href="mailto:esther.poniatowski@ens.psl.eu"><span class="badge">&#9993;</span><span class="label"><span class="title">esther.poniatowski@ens.psl.eu</span></span></a></li>
     <li><a class="row" href="https://www.linkedin.com/in/esther-poniatowski/"><span class="badge">&#8599;</span><span class="label"><span class="title">Esther Poniatowski — LinkedIn</span></span></a></li>
