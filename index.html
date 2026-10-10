@@ -19,7 +19,7 @@
   the material below is about.
 
   THE TWO PAIRS ARE SYMMETRIC, AND THE BOLD IS WHAT ENFORCES IT. Each answer names exactly two terms
-  in weight -- balance / emergence, feedforward projection / recurrent amplification -- because those
+  in weight -- balance / emergence, feedforward projection / recurrent reweighting -- because those
   are the two pairs the poster's own answer boxes set as \propertylabels. Marking one answer's terms
   and not the other's says, in the page's strongest channel, that one question mattered more.
 
@@ -67,29 +67,32 @@
   same is what put seven dead links on the first published stub.
 
   SELF-CONTAINED BY CONSTRAINT: no framework, no web font, no analytics, no external request.
-  Conference network capacity is the binding constraint. Colours are the poster's own tokens
-  (parts/colors-values.tex), so the page reads as continuous with the printed sheet. Link text uses
-  `chromedeep' rather than `chromecore' because the poster's palette checker measures the core rung at
-  2.65 : 1 on the light ground and the deep rung at 4.66 : 1.
+  Conference network capacity is the binding constraint. Colours are the tokens of the PETROL GUIDE
+  scheme (schemes/petrol-guide.tex, Krees Sama's palette, the one printed), so the page reads as
+  continuous with the sheet: ground `posterbg', surfaces `surface', hairlines `bordersubtle', the three
+  text inks, the accent `chromecore' and the badges `chromedeep' under white. The petrol core reaches
+  9.7 : 1 on the ground, so links take the core rung directly (the base scheme's teal core did not).
+  The dark variant is DERIVED, since the scheme declares no dark tokens: the same petrol hue, raised
+  in lightness until it reads on the dark ground.
   ==================================================================================================
 -->
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>How do RNNs encode mixtures? — CCN 2026 poster</title>
-<meta name="description" content="Supporting details, references, and the extended abstract for the CCN 2026 poster on how recurrent networks encode mixtures.">
+<title>How do RNNs encode mixtures? — poster</title>
+<meta name="description" content="Supporting details, references, and the extended abstract for the poster on how recurrent networks encode mixtures, presented at CCN 2026 and at the Royaumont 2026 workshop.">
 <style>
   :root {
-    --bg: #F1F3F3; --surface: #FBFCFC; --border: #DBDFDF;
-    --text: #1B2224; --text-2: #586366; --text-3: #6E797B;
-    --accent: #0C7A72; --badge-bg: #0C7A72; --badge-fg: #FFFFFF;
+    --bg: #F6F3EE; --surface: #FFFFFF; --border: #DDDAD5;
+    --text: #171E23; --text-2: #464E54; --text-3: #585F64;
+    --accent: #00454D; --badge-bg: #002D32; --badge-fg: #FFFFFF;
   }
   @media (prefers-color-scheme: dark) {
     :root {
-      --bg: #12191A; --surface: #1A2325; --border: #2C3739;
-      --text: #EDF1F1; --text-2: #AFB9BA; --text-3: #8C9698;
-      --accent: #35C4BA; --badge-bg: #12A89E; --badge-fg: #0B1213;
+      --bg: #121819; --surface: #1A2224; --border: #2D3638;
+      --text: #EEF1F2; --text-2: #B2BABD; --text-3: #8F989B;
+      --accent: #6CC4CC; --badge-bg: #4FAAB3; --badge-fg: #0B1213;
     }
   }
   * { box-sizing: border-box; }
@@ -211,7 +214,7 @@
         <dt>Which network mechanisms select the actual code?</dt>
         <dd>Two successive transformations of the input control which geometry arises: a
           <strong>feedforward projection</strong> onto the network's collective coordinates, then a
-          <strong>recurrent amplification</strong> of them.</dd>
+          <strong>recurrent reweighting</strong> of them.</dd>
       </div>
     </dl>
   </div>
@@ -225,7 +228,7 @@
            page offers by a factor of seven, so it is a LINK a reader chooses, never something the
            page fetches. Downsampling it would halve that; the source is named in ARTIFACTS
            (scripts/deploy-landing.sh), and repointing that one entry is the whole change. -->
-      <li><a class="entry" href="poster.pdf"><span class="label"><span class="title">Poster</span><span class="sub">the printed sheet, as presented at the session</span></span><span class="tag">PDF</span></a></li>
+      <li><a class="entry" href="poster.pdf"><span class="label"><span class="title">Poster</span><span class="sub">the A0 sheet presented at the Royaumont 2026 workshop</span></span><span class="tag">PDF</span></a></li>
       <li><a class="entry" href="#references"><span class="label"><span class="title">References</span><span class="sub">the works cited on the poster and in the abstract</span></span></a></li>
       <li><a class="entry" href="#contact"><span class="label"><span class="title">Contact</span></span></a></li>
     </ul>
@@ -240,12 +243,12 @@
   <p class="hint">Details address the following points:</p>
   <ol>
     <li id="s1"><span class="row numbered"><span class="badge">1</span><span class="label"><span class="title">Model</span><span class="sub">the recurrent network, its structured connectivity, and the collective coordinates it reduces to</span></span></span></li>
-    <li id="s2"><span class="row numbered"><span class="badge">2</span><span class="label"><span class="title">Two-transformation response map</span><span class="sub">the input is projected into collective coordinates, then amplified by recurrent feedback</span></span></span></li>
-    <li id="s3"><span class="row numbered"><span class="badge">3</span><span class="label"><span class="title">Coordinate factorization</span><span class="sub">along each principal direction, the response is a drive rescaled by an amplification factor</span></span></span></li>
-    <li id="s4"><span class="row numbered"><span class="badge">4</span><span class="label"><span class="title">Condition for pure scaling</span><span class="sub">uniform amplification keeps the mixture aligned with the proportional sum</span></span></span></li>
-    <li id="s5"><span class="row numbered"><span class="badge">5</span><span class="label"><span class="title">Condition for in-plane geometry</span><span class="sub">what keeps a rotated response inside the plane the components span</span></span></span></li>
+    <li id="s2"><span class="row numbered"><span class="badge">2</span><span class="label"><span class="title">Two-transformation input–output map</span><span class="sub">the input is projected into collective coordinates, then reweighted by recurrent feedback</span></span></span></li>
+    <li id="s3"><span class="row numbered"><span class="badge">3</span><span class="label"><span class="title">Coordinate factorization</span><span class="sub">along each principal direction, the output is a drive rescaled by a reweighting factor</span></span></span></li>
+    <li id="s4"><span class="row numbered"><span class="badge">4</span><span class="label"><span class="title">Condition for pure scaling</span><span class="sub">a flat reweighting profile keeps the output to the mixture aligned with the proportional sum</span></span></span></li>
+    <li id="s5"><span class="row numbered"><span class="badge">5</span><span class="label"><span class="title">Condition for in-plane geometry</span><span class="sub">what keeps a rotated output inside the plane the components span</span></span></span></li>
     <li id="s6"><span class="row numbered"><span class="badge">6</span><span class="label"><span class="title">Input variance vs. similarity</span><span class="sub">why superposing two inputs shifts the gain, and how dissimilarity sets the shift</span></span></span></li>
-    <li id="s7"><span class="row numbered"><span class="badge">7</span><span class="label"><span class="title">Divisive normalization vs. network model</span><span class="sub">where the two agree, and where the circuit bias saturates while the power law grows</span></span></span></li>
+    <li id="s7"><span class="row numbered"><span class="badge">7</span><span class="label"><span class="title">Divisive normalization vs. network model</span><span class="sub">where the two agree, and where the network's bias saturates while the power law grows</span></span></span></li>
   </ol>
 
   <h2 id="contact">Contact</h2>
@@ -331,7 +334,9 @@
     <!-- The meeting's own URL is deliberately absent: it was not verified, and an unverified link is
          a defect. Add it once the address is confirmed. The abstract's licence is stated by OpenReview,
          which now distributes it, so it is not restated here. -->
-    <p>Poster presented at the 9th Conference on Cognitive Computational Neuroscience, New York, 2026.</p>
+    <p>Poster presented at the 9th Conference on Cognitive Computational Neuroscience, New York, 2026, and at
+      the workshop <em>Global brain dynamics and the shaping of mental representations</em>, Abbaye de
+      Royaumont, 2026.</p>
   </footer>
 
 </main>
