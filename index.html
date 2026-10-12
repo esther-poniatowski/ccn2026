@@ -2,12 +2,12 @@
 <!--
   FILE: 3-poster/landing/index.html
   ==================================================================================================
-  The landing page the poster's QR code resolves to. Design record: ../qr-strategy.md.
-  Published by ../scripts/deploy-landing.sh, which also refuses to publish a link whose target file
+  The landing page the poster's QR code resolves to. Design record: docs/practice/posters/qr-code-generation.md.
+  Published by utils/scripts/deploy_landing.sh from ../landing.conf, which also refuses to publish a link whose target file
   is absent from the deploy directory -- run it rather than copying files by hand.
 
   THE PAGE ADDRESSES A READER OF THE POSTER, NOT A MAINTAINER. Nothing rendered here describes how
-  the page is built, deployed, or kept in step; that belongs to ../qr-strategy.md. What a visitor
+  the page is built, deployed, or kept in step; that belongs to the design record. What a visitor
   meets first is the scientific claim the poster makes, because a reader who scans a code at a
   conference arrives wanting the result, not a file listing.
 
@@ -67,12 +67,12 @@
   same is what put seven dead links on the first published stub.
 
   SELF-CONTAINED BY CONSTRAINT: no framework, no web font, no analytics, no external request.
-  Conference network capacity is the binding constraint. Colours are the tokens of the PETROL GUIDE
-  scheme (schemes/petrol-guide.tex, Krees Sama's palette, the one printed), so the page reads as
+  Conference network capacity is the binding constraint. Colours are the tokens of the poster's
+  palette (parts/colors-values.tex, after Krees Sama's advice, the one printed), so the page reads as
   continuous with the sheet: ground `posterbg', surfaces `surface', hairlines `bordersubtle', the three
   text inks, the accent `chromecore' and the badges `chromedeep' under white. The petrol core reaches
-  9.7 : 1 on the ground, so links take the core rung directly (the base scheme's teal core did not).
-  The dark variant is DERIVED, since the scheme declares no dark tokens: the same petrol hue, raised
+  9.7 : 1 on the ground, so links take the core rung directly.
+  The dark variant is DERIVED, since the palette declares no dark tokens: the same petrol hue, raised
   in lightness until it reads on the dark ground.
   ==================================================================================================
 -->
@@ -224,11 +224,12 @@
     <ul>
       <li><a class="entry" href="#details"><span class="label"><span class="title">Supporting details</span><span class="sub">the details about the model, assumptions, derivations, and implications</span></span></a></li>
       <li><a class="entry" href="https://openreview.net/forum?id=ix8hv1OnaB&amp;noteId=ix8hv1OnaB"><span class="label"><span class="title">Extended abstract</span><span class="sub">the four-page account presented at the conference</span></span><span class="tag">OpenReview</span></a></li>
-      <!-- The published copy is the build output itself, at 2.5 MB. It is the heaviest thing this
-           page offers by a factor of seven, so it is a LINK a reader chooses, never something the
-           page fetches. Downsampling it would halve that; the source is named in ARTIFACTS
-           (scripts/deploy-landing.sh), and repointing that one entry is the whole change. -->
-      <li><a class="entry" href="poster.pdf"><span class="label"><span class="title">Poster</span><span class="sub">the A0 sheet presented at the Royaumont 2026 workshop</span></span><span class="tag">PDF</span></a></li>
+      <!-- The published copy is the sheet printed for CCN 2026 (../printed-poster.pdf), at 2.6 MB. It
+           is the heaviest thing this page offers by a factor of seven, so it is a LINK a reader
+           chooses, never something the page fetches. The workshop version lives on the Royaumont
+           page, which is linked rather than copied here: one document, one address. -->
+      <li><a class="entry" href="poster.pdf"><span class="label"><span class="title">Poster</span><span class="sub">the sheet presented at CCN 2026</span></span><span class="tag">PDF</span></a></li>
+      <li><a class="entry" href="https://esther-poniatowski.github.io/royaumont2026/#mixture"><span class="label"><span class="title">Workshop version</span><span class="sub">the A0 sheet presented at the Royaumont 2026 workshop</span></span><span class="tag">Royaumont page</span></a></li>
       <li><a class="entry" href="#references"><span class="label"><span class="title">References</span><span class="sub">the works cited on the poster and in the abstract</span></span></a></li>
       <li><a class="entry" href="#contact"><span class="label"><span class="title">Contact</span></span></a></li>
     </ul>
