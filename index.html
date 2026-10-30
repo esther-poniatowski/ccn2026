@@ -3,8 +3,8 @@
   FILE: artifacts/mixture-input-encoding_poster_ccn2026/landing/index.html
   ==================================================================================================
   The landing page the poster's QR code resolves to. Design record: docs/practice/posters/qr-code-generation.md.
-  Published by utils/scripts/deploy_landing.sh from ../landing.conf, which also refuses to publish a link whose target file
-  is absent from the deploy directory -- run it rather than copying files by hand.
+  Published by Ekpempsis from ../ekpempsis.yml, which refuses to synchronize a link whose target
+  file is absent from the publication image. Run the tool rather than copying files by hand.
 
   THE PAGE ADDRESSES A READER OF THE POSTER, NOT A MAINTAINER. Nothing rendered here describes how
   the page is built, deployed, or kept in step; that belongs to the design record. What a visitor
@@ -23,7 +23,7 @@
   are the two pairs the poster's own answer boxes set as \propertylabels. Marking one answer's terms
   and not the other's says, in the page's strongest channel, that one question mattered more.
 
-  ITS WORDING TRACKS parts/block-columns.tex, which is authoritative -- the starting point, the
+  ITS WORDING TRACKS parts/columns.tex, which is authoritative -- the starting point, the
   observation, the goal, the two question headings and the two answer headings. Do not source it from
   the extended abstract, whose framing the poster supersedes, nor from a figure file's commentary.
 
@@ -55,7 +55,7 @@
   by the supplement's own numbered headings once the reader is inside.
 
   THE REFERENCE LIST IS OWNED HERE, and it is the only resource on this page that exists nowhere
-  else. Its source is ../../mixture-input-encoding_abstract_ccn2026/2-camera-ready/references.bib plus the four works cited on the poster
+  else. Its source is ../../mixture-input-encoding_abstract_ccn2026/2_camera-ready/tex/references.bib plus the four works cited on the poster
   alone (Xiao & Huang, Reynolds, Sadagopan & Wang, Juavinett & Callaway), which that bibliography
   does not carry. It is ALPHABETICAL AND UNNUMBERED by design: a number beside a reference would
   wear the same rounded badge as a supplement point three centimetres away on the printed sheet, and
@@ -67,11 +67,10 @@
   same is what put seven dead links on the first published stub.
 
   SELF-CONTAINED BY CONSTRAINT: no framework, no web font, no analytics, no external request.
-  Conference network capacity is the binding constraint. Colours are the tokens of the poster's
-  palette (parts/colors-values.tex, after Krees Sama's advice, the one printed), so the page reads as
-  continuous with the sheet: ground `posterbg', surfaces `surface', hairlines `bordersubtle', the three
-  text inks, the accent `chromecore' and the badges `chromedeep' under white. The petrol core reaches
-  9.7 : 1 on the ground, so links take the core rung directly.
+  Conference network capacity is the binding constraint. The explicit CSS values project the
+  generic roles of the Diakosmos snapshot pinned in .ktisma.toml, so the page reads as continuous
+  with the printed sheet: page ground, surfaces, hairlines, three text inks, accent and badge roles.
+  The petrol core reaches 9.7 : 1 on the ground, so links take the core rung directly.
   The dark variant is DERIVED, since the palette declares no dark tokens: the same petrol hue, raised
   in lightness until it reads on the dark ground.
   ==================================================================================================
@@ -83,18 +82,32 @@
 <title>How do RNNs encode mixtures? — poster</title>
 <meta name="description" content="Supporting details, references, and the extended abstract for the poster on how recurrent networks encode mixtures, presented at CCN 2026 and at the Royaumont 2026 workshop.">
 <style>
+  /* palette projection: pinned Diakosmos roles; synchronize after changing .ktisma.toml */
   :root {
-    --bg: #F6F3EE; --surface: #FFFFFF; --border: #DDDAD5;
-    --text: #171E23; --text-2: #464E54; --text-3: #585F64;
-    --accent: #00454D; --badge-bg: #002D32; --badge-fg: #FFFFFF;
+    --bg: #F6F3EE;
+    --surface: #FFFFFF;
+    --border: #DDDAD5;
+    --text: #171E23;
+    --text-2: #464E54;
+    --text-3: #585F64;
+    --accent: #00454D;
+    --badge-bg: #002D32;
+    --badge-fg: #FFFFFF;
   }
   @media (prefers-color-scheme: dark) {
     :root {
-      --bg: #121819; --surface: #1A2224; --border: #2D3638;
-      --text: #EEF1F2; --text-2: #B2BABD; --text-3: #8F989B;
-      --accent: #6CC4CC; --badge-bg: #4FAAB3; --badge-fg: #0B1213;
+      --bg: #121819;
+      --surface: #1A2224;
+      --border: #2D3638;
+      --text: #EEF1F2;
+      --text-2: #B2BABD;
+      --text-3: #8F989B;
+      --accent: #6CC4CC;
+      --badge-bg: #4FAAB3;
+      --badge-fg: #0B1213;
     }
   }
+  /* palette: end */
   * { box-sizing: border-box; }
   body {
     margin: 0; padding: 1.5rem 1.15rem 4rem;
